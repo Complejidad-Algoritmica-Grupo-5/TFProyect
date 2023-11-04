@@ -31,13 +31,15 @@ def get_shortest_path(start, end, predecessors):
         current_node = predecessors[current_node]
     return path
 
+#Test
 if __name__ == '__main__':
     graph_data = load_graph_data()
     graph = {'nodes': graph_data[0], 'edges': graph_data[1]}
 
-    start_node = 11 #Acepta como start_node: 0, 2, 5, 7, 11
-    end_node = 117 #Acepta como end_node: 0 hasta 117
+    start_node = 11 
+    end_node = 5985
     distances, predecessors = dijkstra(graph, start_node, end_node)
     shortest_path = get_shortest_path(start_node, end_node, predecessors)
     print(f"El camino más corto del punto {start_node} al punto {end_node} es el siguiente:")
     print(shortest_path)
+    print(f"La distancia recorrida total es: {distances[end_node]}")

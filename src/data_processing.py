@@ -23,6 +23,7 @@ def load_graph_data():
 
     return nodes, edges
 
+#Test
 if __name__ == "__main__":
     nodes, edges = load_graph_data()
     print("Nodes:")
