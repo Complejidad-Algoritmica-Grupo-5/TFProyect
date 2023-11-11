@@ -1,6 +1,8 @@
-def load_graph_data(hour=13):
+def load_graph_data(hour=14):
     nodes = {}
     edges = {}
+
+    uploaded = files.upload()
 
     with open('data/nodes.txt', 'r') as nodes_file:
         for line in nodes_file:
@@ -9,6 +11,8 @@ def load_graph_data(hour=13):
             x_coordinate = float(data[1])
             y_coordinate = float(data[2])
             nodes[node_id] = {'x': x_coordinate, 'y': y_coordinate, 'neighbors': {}}
+            
+    uploaded = files.upload()
 
     with open('data/edges.txt', 'r') as edges_file:
         for line in edges_file:
