@@ -1,4 +1,4 @@
-def load_graph_data():
+def load_graph_data(hour=13):
     nodes = {}
     edges = {}
 
