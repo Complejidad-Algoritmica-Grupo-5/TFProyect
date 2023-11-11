@@ -1,4 +1,4 @@
-def calculate_traffic(weight, hour):
+defdef calculate_traffic(weight, hour):
     # Calcula el factor de trafico
     if hour < 7 or hour >= 20:
         traffic_factor = 1.5
@@ -11,3 +11,4 @@ def calculate_traffic(weight, hour):
 
     # Actualiza el peso de la arista
     return weight * traffic_factor
+
