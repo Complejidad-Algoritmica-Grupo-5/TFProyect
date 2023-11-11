@@ -20,6 +20,9 @@ def load_graph_data():
             edges[edge_id] = {'start_node': start_node, 'end_node': end_node, 'weight': weight}
             if start_node in nodes:
                 nodes[start_node]['neighbors'][end_node] = weight
+    # Para calcular el trafico
+    for edge in edges.values():
+        edge['weight'] = calculate_traffic(edge['weight'], hour)
 
     return nodes, edges
 
