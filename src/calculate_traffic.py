@@ -1,4 +1,4 @@
-defdef calculate_traffic(weight, hour):
+def calculate_traffic(weight, hour):
     # Calcula el factor de trafico
     if hour < 7 or hour >= 20:
         traffic_factor = 1.5
