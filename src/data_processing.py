@@ -2,6 +2,7 @@ def load_graph_data(hour=14):
     nodes = {}
     edges = {}
 
+    #Para cargar los archivos en colaboratory
     uploaded = files.upload()
 
     with open('data/nodes.txt', 'r') as nodes_file:
@@ -11,7 +12,7 @@ def load_graph_data(hour=14):
             x_coordinate = float(data[1])
             y_coordinate = float(data[2])
             nodes[node_id] = {'x': x_coordinate, 'y': y_coordinate, 'neighbors': {}}
-            
+    #Para cargar los archivos en colaboratory        
     uploaded = files.upload()
 
     with open('data/edges.txt', 'r') as edges_file:
