@@ -1,23 +1,26 @@
 from calculate_traffic import calculate_traffic
 
-def load_graph_data(hour=14):
+def load_graph_data(hour=11):
     nodes = {}
     edges = {}
 
-    #Para cargar los archivos en colaboratory
-    uploaded = files.upload()
 
-    with open('data/nodes.txt', 'r') as nodes_file:
+    --uploaded = files.upload()
+
+    # Cargar datos de nodos
+    with open('nodes.txt', 'r') as nodes_file:
         for line in nodes_file:
             data = line.split()
             node_id = int(data[0])
             x_coordinate = float(data[1])
             y_coordinate = float(data[2])
             nodes[node_id] = {'x': x_coordinate, 'y': y_coordinate, 'neighbors': {}}
-    #Para cargar los archivos en colaboratory        
-    uploaded = files.upload()
 
-    with open('data/edges.txt', 'r') as edges_file:
+
+    --uploaded = files.upload()
+
+    # Cargar datos de aristas
+    with open('edges.txt', 'r') as edges_file:
         for line in edges_file:
             data = line.split()
             edge_id = int(data[0])
@@ -33,7 +36,7 @@ def load_graph_data(hour=14):
 
     return nodes, edges
 
-#Test
+# Test
 if __name__ == "__main__":
     nodes, edges = load_graph_data()
     print("Nodes:")
@@ -42,3 +45,4 @@ if __name__ == "__main__":
     print("Edges:")
     for edge_id, edge_data in list(edges.items())[:5]:
         print(f"Edge ID: {edge_id}, Edge Data: {edge_data}")
+
