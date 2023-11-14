@@ -1,8 +1,10 @@
 import heapq
 from data_processing import load_graph_data
 
+import heapq
+
 def calculate_traffic(weight, hour):
-    # calcula el factor de trafico
+    # Calcula el factor de trafico
     if hour < 7 or hour >= 20:
         traffic_factor = 1.5
     elif hour >= 7 and hour < 10:
@@ -12,7 +14,7 @@ def calculate_traffic(weight, hour):
     else:
         traffic_factor = 0.8
 
-    # Esto actualiza el peso de la arista
+    # Actualiza el peso de la arista
     return weight * traffic_factor
 
 def dijkstra(graph, start, end, hour):
