@@ -29,7 +29,7 @@ class ShortestPathVisualizer:
         try:
             start_node = int(self.start_entry.get())
             end_node = int(self.end_entry.get())
-            visualize_shortest_path(start_node, end_node)
+            visualize_shortest_path(start_node, end_node, graph_data)
         except ValueError:
             tk.messagebox.showerror("Error", "Ingrese números válidos para los nodos")
 
