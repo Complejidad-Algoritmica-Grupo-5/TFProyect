@@ -2,6 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from data_processing import load_graph_data
 from search_algoritms import dijkstra, get_shortest_path
+from calculate_traffic import calculate_traffic
 
 def visualize_shortest_path(start_node, end_node):
     graph_data = load_graph_data()
