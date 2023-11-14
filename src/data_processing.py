@@ -1,3 +1,5 @@
+from calculate_traffic import calculate_traffic
+
 def load_graph_data(hour=14):
     nodes = {}
     edges = {}
