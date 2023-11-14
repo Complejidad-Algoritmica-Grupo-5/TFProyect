@@ -5,7 +5,7 @@ def load_graph_data(hour=11):
     edges = {}
 
 
-    --uploaded = files.upload()
+    #uploaded = files.upload()
 
     # Cargar datos de nodos
     with open('nodes.txt', 'r') as nodes_file:
@@ -17,7 +17,7 @@ def load_graph_data(hour=11):
             nodes[node_id] = {'x': x_coordinate, 'y': y_coordinate, 'neighbors': {}}
 
 
-    --uploaded = files.upload()
+    #uploaded = files.upload()
 
     # Cargar datos de aristas
     with open('edges.txt', 'r') as edges_file:
