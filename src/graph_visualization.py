@@ -4,7 +4,7 @@ from data_processing import load_graph_data
 from search_algoritms import dijkstra, get_shortest_path
 from calculate_traffic import calculate_traffic
 
-def visualize_shortest_path(start_node, end_node, graph_data):
+def visualize_shortest_path(start_node, end_node, graph_data, hour):
     nodes, edges = graph_data
 
     G = nx.Graph()
@@ -31,9 +31,9 @@ def visualize_shortest_path(start_node, end_node, graph_data):
     plt.show()
 
 # Ejemplo de uso
-start_node = 11 
+start_node = 11
 end_node = 5985
 hour = int(input("Ingrese la hora: "))
-#hour = 14  Puedes ajustar la hora según tus necesidades
-graph_data = load_graph_data(hour)  # Asegúrate de proporcionar la hora a load_graph_data
-visualize_shortest_path(start_node, end_node, graph_data)
+# hour = 14
+graph_data = load_graph_data(hour)
+visualize_shortest_path(start_node, end_node, graph_data, hour)
