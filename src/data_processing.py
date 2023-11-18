@@ -5,7 +5,6 @@ def load_graph_data(hour=11):
     edges = {}
 
 
-    #uploaded = files.upload()
 
     # Cargar datos de nodos
     with open('nodes.txt', 'r') as nodes_file:
@@ -17,7 +16,6 @@ def load_graph_data(hour=11):
             nodes[node_id] = {'x': x_coordinate, 'y': y_coordinate, 'neighbors': {}}
 
 
-    #uploaded = files.upload()
 
     # Cargar datos de aristas
     with open('edges.txt', 'r') as edges_file:
@@ -45,4 +43,5 @@ if __name__ == "__main__":
     print("Edges:")
     for edge_id, edge_data in list(edges.items())[:5]:
         print(f"Edge ID: {edge_id}, Edge Data: {edge_data}")
+
 
