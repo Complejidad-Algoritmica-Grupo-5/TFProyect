@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from graph_visualization import visualize_shortest_path
+from data_processing import load_graph_data
 
 def is_valid_number(entry):
     try:
@@ -9,13 +10,14 @@ def is_valid_number(entry):
     except ValueError:
         return False
 
-def visualize_path(start_entry, end_entry):
-    if is_valid_number(start_entry) and is_valid_number(end_entry):
+def visualize_path(start_entry, end_entry, hour_entry, graph_data):
+    if hour_entry and is_valid_number(start_entry) and is_valid_number(end_entry) and is_valid_number(hour_entry):
         start_node = int(start_entry.get())
         end_node = int(end_entry.get())
-        visualize_shortest_path(start_node, end_node)
+        hour = int(hour_entry.get())
+        visualize_shortest_path(start_node, end_node, graph_data, hour)
     else:
-        messagebox.showerror("Error", "Por favor ingrese números válidos.")
+        messagebox.showerror("Error", "Por favor ingrese números válidos para todos los campos.")
 
 def center_window(window):
     window.update_idletasks()
@@ -33,6 +35,7 @@ def add_hour_entry(frame):
 
     hour_entry = tk.Entry(frame, font=("Arial", 12))
     hour_entry.grid(row=2, column=1, padx=5, pady=5)
+    return hour_entry
 
 def main():
     window = tk.Tk()
@@ -57,14 +60,20 @@ def main():
     end_entry = tk.Entry(frame, font=("Arial", 12))
     end_entry.grid(row=1, column=1, padx=5, pady=5)
 
-    def visualize_and_center():
-        visualize_path(start_entry, end_entry)
+    hour_entry = None
 
-    visualize_button = tk.Button(window, text="Visualizar Ruta", command=visualize_and_center, font=("Arial", 12))
+    def visualize_and_center():
+        nonlocal hour_entry
+        hour_entry = add_hour_entry(frame)
+
+    graph_data = load_graph_data()  # Asegúrate de proporcionar el graph_data aquí
+
+    visualize_button = tk.Button(window, text="Visualizar Ruta", command=lambda: visualize_path(start_entry, end_entry, hour_entry, graph_data), font=("Arial", 12))
     visualize_button.pack(pady=10)
 
     def add_hour():
-        add_hour_entry(frame)
+        nonlocal hour_entry
+        hour_entry = add_hour_entry(frame)
 
     load_map_button = tk.Button(window, text="Incluir hora", command=add_hour, font=("Arial", 12))
     load_map_button.pack(pady=10)
@@ -74,3 +83,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
